@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
+if number < 0 and last_digit != 0:
+    last_digit = -last_digit
 last_digit = abs(number) % 10
 if last_digit > 5:
     condition = "and is greater than 5"
