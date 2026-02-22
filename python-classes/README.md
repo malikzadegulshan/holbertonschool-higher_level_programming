@@ -1,0 +1,1 @@
+This folder is for demonstrating classes in Python programming language.
