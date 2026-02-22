@@ -70,3 +70,15 @@ Passing a dict as b:
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
+
+Passing infinity as a:
+    >>> add_integer(float('inf'), 1)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+Passing NaN as a:
+    >>> add_integer(float('nan'), 1)
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
