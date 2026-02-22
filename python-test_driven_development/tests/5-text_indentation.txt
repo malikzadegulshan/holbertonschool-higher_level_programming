@@ -1,0 +1,127 @@
+==============================
+Tests for 5-text_indentation.py
+==============================
+
+Import the function:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+------------------------------
+Basic usage
+------------------------------
+
+Text ending with a period:
+    >>> text_indentation("Hello.")
+    Hello.
+    <BLANKLINE>
+
+Text ending with a question mark:
+    >>> text_indentation("How are you?")
+    How are you?
+    <BLANKLINE>
+
+Text ending with a colon:
+    >>> text_indentation("The following:")
+    The following:
+    <BLANKLINE>
+
+Text with multiple delimiters:
+    >>> text_indentation("Hello. How are you? Good:")
+    Hello.
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    Good:
+    <BLANKLINE>
+
+Text with no delimiter (no extra newlines, no trailing newline):
+    >>> text_indentation("Hello there")
+    Hello there
+
+Text ending without a delimiter (trailing text printed without newline):
+    >>> text_indentation("Hello. World")
+    Hello.
+    <BLANKLINE>
+    World
+
+------------------------------
+Spaces handling
+------------------------------
+
+Leading spaces after a delimiter are stripped:
+    >>> text_indentation("Hello.   next")
+    Hello.
+    <BLANKLINE>
+    next
+
+Leading and trailing spaces in the whole text are stripped per line:
+    >>> text_indentation("   Hello.   ")
+    Hello.
+    <BLANKLINE>
+
+Spaces around a delimiter:
+    >>> text_indentation("  Hello  .  World  ")
+    Hello  .
+    <BLANKLINE>
+    World
+
+------------------------------
+Edge cases
+------------------------------
+
+Empty string (prints nothing):
+    >>> text_indentation("")
+
+Only a delimiter:
+    >>> text_indentation(".")
+    .
+    <BLANKLINE>
+
+Multiple consecutive delimiters:
+    >>> text_indentation("?:.")
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+
+All three delimiters in one sentence:
+    >>> text_indentation("Wait: really? Yes.")
+    Wait:
+    <BLANKLINE>
+    really?
+    <BLANKLINE>
+    Yes.
+    <BLANKLINE>
+
+------------------------------
+TypeError: text must be a string
+------------------------------
+
+Integer as text:
+    >>> text_indentation(42)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+None as text:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+List as text:
+    >>> text_indentation(["Hello."])
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+------------------------------
+Missing arguments
+------------------------------
+
+Missing text argument:
+    >>> text_indentation()
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
