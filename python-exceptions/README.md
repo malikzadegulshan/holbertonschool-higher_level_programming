@@ -1,0 +1,1 @@
+This is a folder for demonstrating Python exceptions.
