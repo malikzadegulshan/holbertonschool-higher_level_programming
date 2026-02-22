@@ -1,0 +1,72 @@
+===========================
+Tests for 0-add_integer.py
+===========================
+
+Import the function:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+----------------------------
+Basic integer addition
+----------------------------
+
+Adding two positive integers:
+    >>> add_integer(1, 2)
+    3
+
+Adding a positive and a negative integer:
+    >>> add_integer(100, -2)
+    98
+
+Using the default value of b (98):
+    >>> add_integer(2)
+    100
+
+----------------------------
+Float handling (cast to int)
+----------------------------
+
+Float a, integer b (float is truncated):
+    >>> add_integer(100.3, -2)
+    98
+
+Float a and float b (both truncated):
+    >>> add_integer(3.9, 2.9)
+    5
+
+Negative floats are truncated toward zero:
+    >>> add_integer(-3.9, 1)
+    -2
+
+----------------------------
+TypeError cases
+----------------------------
+
+Passing a string as b:
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+Passing None as a:
+    >>> add_integer(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Passing a string as a:
+    >>> add_integer("Hello", 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Passing a list as a:
+    >>> add_integer([1, 2], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Passing a dict as b:
+    >>> add_integer(1, {"key": "value"})
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
