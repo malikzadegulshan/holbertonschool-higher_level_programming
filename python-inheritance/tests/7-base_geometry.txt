@@ -1,0 +1,69 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+# Test valid integers
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+
+# Test string value raises TypeError
+>>> try:
+...     bg.integer_validator("name", "John")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+
+# Test zero raises ValueError
+>>> try:
+...     bg.integer_validator("age", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0
+
+# Test negative value raises ValueError
+>>> try:
+...     bg.integer_validator("distance", -4)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] distance must be greater than 0
+
+# Test float raises TypeError
+>>> try:
+...     bg.integer_validator("price", 3.14)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] price must be an integer
+
+# Test bool raises TypeError
+>>> try:
+...     bg.integer_validator("flag", True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] flag must be an integer
+
+# Test None raises TypeError
+>>> try:
+...     bg.integer_validator("val", None)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] val must be an integer
+
+# Test tuple raises TypeError
+>>> try:
+...     bg.integer_validator("tup", (1,))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] tup must be an integer
+
+# Test list raises TypeError
+>>> try:
+...     bg.integer_validator("lst", [1])
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] lst must be an integer
+
+# Test area() raises Exception
+>>> try:
+...     bg.area()
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[Exception] area() is not implemented
