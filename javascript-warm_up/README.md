@@ -1,0 +1,1 @@
+This folder is for demonstrating JavaScript programming skills.
