@@ -1,0 +1,1 @@
+This folder is for demonstrating JS DOM manipulation.
